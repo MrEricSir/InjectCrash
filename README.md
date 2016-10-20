@@ -13,11 +13,11 @@ The debug versions of the executable and DLLs are dynamically linked against the
 
 From the command line, run
 
-`injectcrash.exe [pid]`
+`injectcrash pid [type]`
 
-Where [pid] is the process identifier. You can find the process identifier on the Details tab of Task Manager under the "PID" header. The target program will crash.
+Where "pid" is the process identifier. You can find the process identifier on the Details tab of Task Manager under the "PID" header. The target program will crash. "Type" is an optional parameter specifying the type of crash.
 
-For more information and other parameters, run `injectcrash.exe` without the pid parameter.
+For more information, run `injectcrash` without any parameters. Or open up the source code and take a look for yourself.
 
 ## FAQ
 
@@ -34,7 +34,8 @@ For more information and other parameters, run `injectcrash.exe` without the pid
 
 **A:** There are several:
 
-* For the moment it only supports two crash types, null pointer exceptions and debug breaks. More may be added in the future. 
+* Not all crash types are supported, though more may be added in the future. 
+* The crash DLLs must be located in the same folder as injectcrash.exe.
 * InjectCrash makes no effort to determine if the target process is 32 or 64 bit. It's up to the end user to compile the executable and DLLs with the desired architecture.
 * The error messages can be cryptic. See the Microsoft's [System Error Codes](https://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx) for a reference. 
 * You may need to run the process as an administrator if UAC is enabled on Windows Vista or newer to crash privileged processes.
